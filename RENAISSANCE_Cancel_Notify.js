@@ -2,7 +2,7 @@
 let LINE_TOKEN = 'hogehoge';
 
 // LINE notifyで送信
-function send_line(message){
+function sendLine(message){
    
   //Lineに送信するためのトークン
   let options =
@@ -10,7 +10,6 @@ function send_line(message){
      "method"  : "post",
      "payload" : "message=" + message,
      "headers" : {"Authorization" : "Bearer "+ LINE_TOKEN}
- 
    };
  
    UrlFetchApp.fetch("https://notify-api.line.me/api/notify", options);
@@ -74,7 +73,7 @@ function main() {
  new_messages = searchAndSend()
  if(new_messages.length > 0){
    for(var i = 0; i < new_messages.length; i++){
-    send_line(new_messages[i]);
+    sendLine(new_messages[i]);
     // console.log('send message!');
    }
  }
